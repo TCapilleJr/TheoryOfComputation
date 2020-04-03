@@ -19,7 +19,7 @@ def m7_2(input):
     stack = deque()   #The PDA's stack
     result = False    #The result indicates whether or not out input is accepted by the machine
 
-    #Some code here will appear redundant because of the way the machine is being emulated
+    #Some code here will appear redundant or unneccesary because of the way I chose to emulate the machine
     #s will always equal state_1 at this point because the machine always begins in the same start state
     #the length of L is checked, if it is greater than zero the machine advances, if not it stays in state_1, this is how I chose to emulate state_1 being an accept state
     if s == state_1 and len(L) > 0:
