@@ -23,15 +23,13 @@ def pumping_lemma():
     # Result is a list instead of string to store 0's and 1's to make use of pythons count function
     result = []
     s = '01'
-    result.append(0)
     result.append(1)
 
     #  This loop mimics the pumping lemma by trying to repeatedly append each symbol of the string until the the string
-    #  is no longer a part of the language.  The contradiction occurs immediately when we try to pump 0.  Since |uv| < k
+    #  is no longer a part of the language.  The contradiction occurs immediately when we try to pump 0 and not add a 1.  Since |uv| < k
     #  we achieve our contradiction
     for ch in s:
-        print(sorted(result))
-        while not L(result.count(0), result.count(1)):
+        while L(result.count(0), result.count(1))[0]:
             result.append(int(ch))
             print(sorted(result))
 
@@ -41,4 +39,4 @@ def pumping_lemma():
 # By proof of contradiction this language is proven to be
 # non-regular using the pumping lemma
 
-print(pumping_lemma())
+print(pumping_lemma())a
