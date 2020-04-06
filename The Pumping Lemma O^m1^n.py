@@ -12,6 +12,7 @@ def L(m, n):
         return True, zeros + ones
     return False, "Not in language"
 
+
 # Uses pumping lemma and the definition of L to decide if the pumped string is in L.
 def pumping_lemma():
     # Assume L is regular, choose an string in L with pumping length k, such that
@@ -21,19 +22,23 @@ def pumping_lemma():
 
     # Result is a list instead of string to store 0's and 1's to make use of pythons count function
     result = []
-    # O^1 1^2 is in our given s
-    zeros = '0'
-    ones = '11'
+    s = '01'
+    result.append(0)
+    result.append(1)
 
-    # pumping zeros => uv = 0^i, this example produces a contradiction at i = 2
+    #  This loop mimics the pumping lemma by trying to repeatedly append each symbol of the string until the the string
+    #  is no longer a part of the language.  The contradiction occurs immediately when we try to pump 0.  Since |uv| < k
+    #  we achieve our contradiction
+    for ch in s:
+        print(sorted(result))
+        while not L(result.count(0), result.count(1)):
+            result.append(int(ch))
+            print(sorted(result))
 
-    for _ in range(2):
-        result.append(zeros)
-    result.append(ones)
+    return L(result.count(0), result.count(1))
 
-    return (L(result.count('0'), result.count(('1'))))
 
-#By proof of contradiction this language is proven to be
-#non-regular using the pumping lemma
+# By proof of contradiction this language is proven to be
+# non-regular using the pumping lemma
 
 print(pumping_lemma())
