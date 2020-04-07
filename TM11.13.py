@@ -1,4 +1,4 @@
-"""This is an emulation of Turing Machine 3.13 from Wayne Goddard: Intro to Theory of Computation.  This program
+"""This is an emulation of Turing Machine 11.13 from Wayne Goddard: Intro to Theory of Computation.  This program
 uses a list and an index to act as the head and the tape of a TM.  This function allows for a parameter string, and
 tests whether it is accepted by the TM. The use of the symbol $ is used instead of delta.  Every time an action
 occurs within the machine the head (index) and tape is printed allowing the user to follow along with the steps
@@ -15,9 +15,9 @@ q_6 = 6
 h_a = 'h_a'
 
 
-#  Tm 3.13 as a function
+#  Tm 11.13 as a function
 
-def TM_3_13(s):
+def TM_11_13(s):
     # l = tape of TM
     l = init_TM(s)
     # current state
@@ -196,9 +196,9 @@ def test():
     f = ['0', '1', '11', '00', '1111', '101', '010']  ## all false
     print('--------------------------------------True -------------------------------------------')
     for x in t:
-        print(TM_3_13(x))
+        print(TM_11_13(x))
     print('--------------------------------------False ------------------------------------------')
     for y in f:
-        print(TM_3_13(y))
+        print(TM_11_13(y))
 
 test()
