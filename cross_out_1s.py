@@ -1,3 +1,8 @@
+"""Emulation of example from first lecture from chapter 12.  This is a transducer, meaning its a TM that performs an
+operation.  This program enables the user to visual the traversal of the transducer
+author: Timothy Capille"""
+
+# States of transducer
 q1 = 1
 q2 = 2
 q3 = 3
@@ -5,12 +10,14 @@ q4 = 4
 q5 = 5
 ha = 6
 
-
+# definition of transducer as a function
 def erase_ones(s):
+    # gives tape delta values at beginning and end
     l = init_tape(s)
     head = l.index('$') + 2
     cur_state = q1
     finished = False
+    #  follow tape until no move can be made, or an accept state is reached
     while not finished:
         finished = True
         if cur_state == q1:
